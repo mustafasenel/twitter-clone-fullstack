@@ -10,11 +10,6 @@ const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
     
     const session = await getServerSession(req, res, authOptions);
 
-    
-    // const session = {
-    //  user: { name: 'Mustafa Şenel', email: 'senel1806@gmail.com', image: null },   
-    //     expires: '2023-05-30T07:16:06.588Z'
-    //   }
     if (!session?.user?.email) {
         throw new Error("Not signed in session")
     }
